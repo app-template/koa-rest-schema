@@ -1,0 +1,39 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": "node --harmony app.js",
+    "test": "./node_modules/.bin/mocha --harmony --reporter spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.3.3",
+    "ejs": "^2.5.2",
+    "file-stream-rotator": "0.0.7",
+    "http-errors": "^1.5.1",
+    "json-schema-faker": "^0.3.7",
+    "jsonschema": "^1.1.0",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-helmet": "^2.0.0",
+    "koa-morgan": "^1.0.1",
+    "koa-rest-router": "^1.0.0",
+    "koa-router": "^7.0.1",
+    "koa-timeout-v2": "^1.0.0",
+    "koa-xtime": "^1.0.0",
+    "sleep2": "^1.0.0",
+    "underscore": "^1.8.3",
+    "uuid": "^3.0.0",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "supertest": "^2.0.0"
+  }
+}

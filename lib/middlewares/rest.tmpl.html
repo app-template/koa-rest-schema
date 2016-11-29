@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello Bootstrap</title>
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="jumbotron">
+			<h1 class="text-center">API List</h1>
+		</div>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<ul class="nav navbar-nav">
+			<% Object.keys(api).forEach((name, i) => {%>
+				<li class="<%= i === 0?'active':'' %>"><a data-toggle="pill" href="#<%= name %>"><%= name.toUpperCase() %></a></li>
+			<%}); %>
+	    		
+	  		</ul>
+		</nav>
+		<div class="container bg-info">
+			<div class="tab-content">
+				<% Object.keys(api).forEach((name, i) => {%>
+				<div id="<%= name%>" class="tab-pane fade <%= i === 0?'in active':'' %>">
+					<h3><%= name %></h3>
+						<div class="panel-group">
+							<% Object.keys(api[name]).forEach(fnName => { %>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#<%= name %>-<%= fnName%>" ><%= fnName %> <small><%= api[name][fnName].mock? '( mocked )':'' %></small></a>
+									</h4>
+								</div>
+								<div id="<%= name %>-<%= fnName%>" class="panel-collapse collapse">
+									<div class="panel-body">
+										<table class="table table-hover">
+											<tr><td class="col-md-1 text-right"><strong>path:</strong></td><td class="col-md-11"><%= api[name][fnName].path%></td></tr>
+											<tr><td class="text-right"><strong>methods:</strong></td><td ><%= api[name][fnName].method.toUpperCase() %></td></tr>
+											<% if (api[name][fnName].params) {%>
+											<tr><td class="text-right"><strong>params:</strong></td><td><pre><%= util.inspect(api[name][fnName].params,{ showHidden: false, depth: null }) %></pre></td></tr>
+											<% } %>
+											<% if (api[name][fnName].body) {%>
+											<tr><td class="text-right"><strong>body:</strong></td><td><pre><%= util.inspect(api[name][fnName].body,{ showHidden: false, depth: null }) %></pre></td></tr>
+											<% } %>
+											<% if (api[name][fnName].result) {%>
+											<tr><td class="text-right"><strong>result:</strong></td><td><pre><%= util.inspect(api[name][fnName].result,{ showHidden: false, depth: null }) %></pre></td></tr>
+											<% } %>
+										</table>
+									</div>						
+								</div>
+							</div>
+							<%}); %>
+						</div>
+				</div>
+				<%}); %>
+			</div>
+		</div>
+	</body>
+</html>

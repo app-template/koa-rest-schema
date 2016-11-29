@@ -1,8 +1,8 @@
-# koa-rest-service
+# koa-rest-schema
 
 ## Description & Features
 
-Rest Web Server template driving by schema, with sample rest endpoint `users` , configured with common middlewares, include security, log, timeout, body parser etc.
+Rest Web Server template driving by schema, with sample rest endpoint `users` , generate mocked API by schema automatically, configured with common middlewares, include security, log, timeout, body parser etc.
 Without static pages, without database.
 
 ## Install
@@ -31,7 +31,7 @@ Run test
 
 ## How to start your work
 
-Write resource schema in /lib/resources/xxxx.schm.js
+Write API schema in /lib/resources/xxxx.schm.js
 
 Write resource in /lib/resources/xxxx.rs.js (optional)
 
